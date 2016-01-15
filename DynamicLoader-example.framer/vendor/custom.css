@@ -1,0 +1,49 @@
+/*line chart*/
+#trend .ct-line{
+	stroke: url(#gradient1);
+	stroke-width: 8px;
+	stroke-linecap: round;
+}
+#trend .ct-point{
+	stroke-width: 20px;
+}
+#trend .ct-grid{
+	stroke: rgba(255,255,255,.8);
+	stroke-dasharray: 8px;
+}
+#trend .ct-vertical{
+	color: rgba(255,255,255,.6);
+	font-size: 1em;
+}
+#trend .ct-horizontal{
+	transform: translateY(6px);
+	font-size: .8em;
+	color: rgba(255,255,255,.4);
+	justify-content: center;
+}
+
+/*pie chart*/
+#return .ct-series-a:not(.ct-fill-donut) .ct-slice-donut{
+	stroke: url(#gradient2);
+}
+
+#churn .ct-series-a:not(.ct-fill-donut) .ct-slice-donut{
+	stroke: url(#gradient3);
+}
+
+
+.pie .ct-series-a .ct-slice-donut{
+	stroke-linecap: round;
+}
+.pie .ct-series-b .ct-slice-donut, .pie .ct-fill-donut .ct-slice-donut{
+	stroke: rgb(46, 59, 71);
+}
+.pie .label{
+	margin: .2em -.2em 0 0;
+	font-size: 3em;
+}
+.pie .label span{
+	margin-left: 4px;
+	font-size: .4em;
+	opacity: .6;
+}
