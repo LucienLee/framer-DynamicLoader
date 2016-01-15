@@ -2,6 +2,10 @@
 A module that  braeks the barriars between 3rd party web development libraries and Framer, which enable loading additional CSS and JS dynamically in Framer.
 
 ## Demo
+Demo loading [Chartist.js](https://gionkunz.github.io/chartist-js/) with DynamicLoader in Framer. Here is [live demo](http://share.framerjs.com/go6hise0lidu/).
+![demo](https://github.com/LucienLee/framer-DynamicLoader/blob/demo/demo.gif)
+
+Please check the [demo](https://github.com/LucienLee/framer-DynamicLoader/tree/demo) branch.
 
 ## Getting started
 ### Add it in your Framer project
