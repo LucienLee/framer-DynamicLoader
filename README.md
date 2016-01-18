@@ -18,7 +18,7 @@ Please check the [demo](https://github.com/LucienLee/framer-DynamicLoader/tree/d
 
 If you only have one file to load...
 
-```
+```coffeescript
 DynamicLoader.add('script.js').then(->
 // When script.js loaded successfully...
 // Put your code Here
@@ -27,7 +27,7 @@ DynamicLoader.add('script.js').then(->
 
 If you have many files to load...
 
-```
+```coffeescript
 #Load files in series
 DynamicLoader.series(['one.js', 'two.css', ...]).then(->
 // When all script loaded one by one successfully...
@@ -66,7 +66,7 @@ project.framer
 
 In your `app.coffee`
 
-```
+```coffeescript
 {DynamicLoader} = require "DynamicLoader"
 DynamicLoader.series(['./vendor/A.css', './vendor/B.js').then(->
 ...
