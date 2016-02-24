@@ -1,23 +1,20 @@
 {
 	"name": "framer-dynamicloader",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"descrptions": "A module to enable loading additional CSS and JS dynamically in Framer.",
   "main": "DynamicLoader.coffee",
 	"author": {
-    	"name": "Lucien Lee",
-    	"email": "lucien@lucienlee.cc"
-  	},
-  	"repository": {
-    	"type": "git",
-    	"url": "git+ssh://git@github.com:LucienLee/framer-DynamicLoader.git"
-  	},
-  	"dependencies": {
-    	"coffeeify": "^1.1.0"
-  	},
-  	"keywords": [
-    	"prototyping",
-    	"framerjs",
-    	"promise"
-  	],
-  	"license": "Apache 2.0"
+  	"name": "Lucien Lee",
+  	"email": "lucien@lucienlee.cc"
+	},
+	"repository": {
+  	"type": "git",
+  	"url": "git+ssh://git@github.com:LucienLee/framer-DynamicLoader.git"
+	},
+	"keywords": [
+  	"prototyping",
+  	"framerjs",
+  	"promise"
+	],
+	"license": "Apache 2.0"
 }

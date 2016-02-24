@@ -13,6 +13,14 @@ Please check the [demo](https://github.com/LucienLee/framer-DynamicLoader/tree/d
 - Download [DynamicLoader.coffee](https://github.com/LucienLee/framer-DynamicLoader/blob/master/DynamicLoader.coffee) and put it in the module folder of the project
 - At the top of your code, write `{DynamicLoader} = require "DynamicLoader"`
 
+#### Install with npm
+If you're familiar with npm, you could install with following commands.
+
+```Shell
+$ cd <myProject>.framer
+$ npm install framer-dynamicloader
+$ ln node_modules/framer-dynamicloader/DynamicLoader.coffee modules/
+```
 
 ### Quickstart
 
