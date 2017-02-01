@@ -6,7 +6,7 @@ Framer.Info =
 	title: "DynamicLoader modules demo"
 	author: "Lucien Lee"
 	twitter: "luciendeer"
-	description: "DynamicLoader module loads external chartist.js and its plugin, fill-donut.js into Framer, which exploits chartist to build chart interaction after external resourse loaded."
+	description: "DynamicLoader module loads external chartist.js and its plugin, fill-donut.js into Framer. Please check: https://github.com/LucienLee/framer-DynamicLoader/"
 
 # List script and stylesheets' paths, jquery for donut plugin
 CHARTIST = [
