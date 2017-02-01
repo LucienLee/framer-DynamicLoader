@@ -1,8 +1,21 @@
-# Demo DynamicLoader module with chartist.js and its plugnin, fill-donut.js
+# Demo DynamicLoader module with chartist.js and its plugin, fill-donut.js
 {DynamicLoader} = require "DynamicLoader"
 
-# List script and stylesheets' paths
-CHARTIST = ["//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css", "//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js", "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", "./vendor/chartist-plugin-fill-donut.js", "./vendor/custom.css"]
+# Info 
+Framer.Info =
+	title: "DynamicLoader modules demo"
+	author: "Lucien Lee"
+	twitter: "luciendeer"
+	description: "DynamicLoader module loads external chartist.js and its plugin, fill-donut.js into Framer, which exploits chartist to build chart interaction after external resourse loaded."
+
+# List script and stylesheets' paths, jquery for donut plugin
+CHARTIST = [
+	"./vendor/chartist.min.css",
+	"./vendor/chartist.min.js",
+	"//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"
+	"./vendor/chartist-plugin-fill-donut.js",
+	"./vendor/custom.css"
+]
 
 ## Import file "stats" (sizes and positions are scaled 1:2)
 Sketch = Framer.Importer.load("imported/stats@2x")
@@ -37,22 +50,24 @@ for i in [0...DATA_AMOUNT]
 
 ## Chartist Options
 lineOptions =
-	height: 400
-	width: 2*Screen.width
+	height: "#{LINE_CHART_HEIGHT}px"
+	width: "#{2*Screen.width}px"
 	showPoint: true
 	chartPadding: 
 		left: 16
 		top: 30
 	axisX:
-	    showGrid: false
+		showGrid: false
 	axisY:
 		onlyInteger: true
 		offset: 80
 		scaleMinSpace: 60
 		labelInterpolationFnc: (value) ->
-	    	"#{value}K"
+			"#{value}K"
 
 pieOptions =
+	width: "#{ReturnRatePlaceholder.width}px"
+	height: "#{ReturnRatePlaceholder.width}px"
 	donut: true
 	donutWidth: 14
 	total: 100,
@@ -99,8 +114,7 @@ defGradient = (ctx, name, startColor, endColor)->
 			.elem('stop', offset: 0, 'stop-color': startColor)
 			.parent().elem( 'stop', offset: 1, 'stop-color': endColor )
 
-
-## Load all files we need in serial
+# Load all files we need in serial, after loaded run the code in then function
 DynamicLoader.series(CHARTIST).then(->
 	init = true
 	lastPath = undefined
@@ -161,12 +175,12 @@ DynamicLoader.series(CHARTIST).then(->
 				style: "stroke: #{Color.mix(GRADIENT_COLOR1_1, GRADIENT_COLOR1_2, Chartist.getMultiValue(data.value) / _.max(data.series))}"
 			# Animate point 			
 			data.element.animate
-		 		opacity: 
-		 			dur: 250
-		 			begin: 800
-		 			from: 0
-		 			to: 1
-		 			easing: Chartist.Svg.Easing.easeOutQuint
+				opacity: 
+					dur: 250
+					begin: 800
+					from: 0
+					to: 1
+					easing: Chartist.Svg.Easing.easeOutQuint
 		 					 			
 		if data.type is 'line'
 			# create bounding box for gradient color
@@ -174,11 +188,11 @@ DynamicLoader.series(CHARTIST).then(->
 				x1: data.x1 + 0.001
 			# Animate line
 			data.element.animate 
-		 		d: 
-			 		dur: 1000
-			 		from: if lastPath is undefined then data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify() else lastPath
-			 		to: data.path.clone().stringify()
-			 		easing: Chartist.Svg.Easing.easeOutQuint
+				d: 
+					dur: 1000
+					from: if lastPath is undefined then data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify() else lastPath
+					to: data.path.clone().stringify()
+					easing: Chartist.Svg.Easing.easeOutQuint
 			# Save previous line path  			
 			if init is true
 				lastPath = data.path.clone().stringify()
